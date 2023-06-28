@@ -1,41 +1,53 @@
-# Project Title
+# Deploying Degen Token
 
-Simple overview of use/purpose.
+This is a hardhat project in which we are deploying our contract on the avalanche fuji testnet.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+In the contract that we have deployed, Degen token (symbol-DGN) is created and also there's a Degen shop where there are 5 shop items in which user can redeem any item if he has required number of tokens. This contract is then deployed & verified on the avalanche fuji testnet.
 
 ## Getting Started
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+You can run the code on gitpod by forking it or download the code and run the code locally.
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
+You can run the following commands to test, compile, deploy and verify it on avalanche testnet
+
 ```
-code blocks for commands
+npx hardhat help
 ```
 
-## Help
+```
+npx hardhat test
+```
 
-Any advise for common problems or issues.
 ```
-command to run if program contains helper info
+REPORT_GAS=true npx hardhat test
 ```
+
+```
+npx hardhat node
+```
+
+```
+npx hardhat run scripts/deploy.js --network fuji
+```
+
+```
+npx hardhat verify [contract_address] --network fuji
+```
+
 
 ## Authors
 
-Contributors names and contact info
+Sruthika Sivakumar
 
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+@sruthikaaas@gmail.com
 
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the MIT License .

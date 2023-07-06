@@ -6,21 +6,26 @@ import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract DegenToken is ERC20, ERC20Burnable, Ownable {
-    string public shop;
+    string public rules;
+    string public in_gameStore;
     constructor() ERC20("Degen", "DGN") {
-        shop="Items available in the shop are 1. Degen Hoodies 2. Degen Mug 3. Degen Shoes 4. Degen Shirt 5. Degen Candies";
+        rules="1. The player should be above 18 years of age 2. The player can mint, burn, transfer and self destruct 3. Follow the other 2 rules :)";
+        in_gameStore="1. Official Degen Cap 2. Official Degen Pencil 3. Official Degen Rollerblades";
     }
 
     function mint(address to_address, uint256 amt) public onlyOwner {
         _mint(to_address, amt);
         
     }
+    function redeem(uint amount)public {
+        assert(balanceOf(msg.sender)!=0 && amount<4);
+        require(balanceOf(msg.sender)>500, "There should be minimum of 500 tokens to redeem any item from our store");
+        _burn(msg.sender, amount**3);
+    }
 
-    function redeem(uint256 redamt) public{
-        if(balanceOf(msg.sender)<0 && redamt>5){
-            revert("There are only 5 items in the store , kindly enter a valid number");
-        }
-        _burn(msg.sender, redamt*100);
+    function selfdestruct() public{
+        require(balanceOf(msg.sender)>0, "There should be some tokens to self destruct ");
+        _burn(msg.sender, balanceOf(msg.sender));
        
     }
 }

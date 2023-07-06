@@ -1,6 +1,6 @@
 # Deploying Degen Token
 
-This is a hardhat project in which we are deploying our contract on the avalanche fuji testnet, verifying the contract and also playing around with the different functions .
+This is a hardhat project in which we are deploying our contract on the avalanche fuji testnet, verifying the contract and also playing around with the different functions . Read the rules before you start the game :)
 
 ## Description
 
